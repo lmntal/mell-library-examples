@@ -20,6 +20,7 @@ comm@@
 ```
 
 ## Full
+
 ```
 { module(pi).
   comm@@ {$x,+C1,+C2}, {once, get(C1,Y,{$b1[Y|*V1]}), $c1},
