@@ -61,8 +61,9 @@ Examples are taken from
 [2] Milner, R., Communicating and Mobile Systems: the Pi-Calculus Cambridge Univ. Press, 1999.
 
 
-1. $(\nu z)\left(\bar{x} \langle y \rangle + \bar{z}(w).\bar{w} \langle y \rangle \right) \mid \bar{x}(u).\bar{u} \langle v \rangle \mid \bar{x} \langle z \rangle \quad \longrightarrow^* \quad (\nu z)\left(\bar{y}(v) \mid \bar{x}(z)\right) \text{ or } \bar{v}(y)$
+### 1.
 
+$$(\nu z)\left(\bar{x} \langle y \rangle + \bar{z}(w).\bar{w} \langle y \rangle \right) \mid \bar{x}(u).\bar{u} \langle v \rangle \mid \bar{x} \langle z \rangle \quad \longrightarrow^* \quad (\nu z)\left(\bar{y}(v) \mid \bar{x}(z)\right) \text{ or } \bar{v}(y)$$
 
 ```
 { example1. pi.use.
@@ -73,7 +74,9 @@ Examples are taken from
 }.
 ```
 
-2. $(\nu x)(\bar{x} \langle y \rangle .0 \mid \bar{x}(u).\bar{u} \langle v \rangle .0) \mid \bar{x} \langle z \rangle .0 \quad \longrightarrow^* \quad \bar{y} \langle v \rangle \mid \bar{x} \langle z \rangle$
+### 2. 
+
+$$(\nu x)(\bar{x} \langle y \rangle .0 \mid \bar{x}(u).\bar{u} \langle v \rangle .0) \mid \bar{x} \langle z \rangle .0 \quad \longrightarrow^* \quad \bar{y} \langle v \rangle \mid \bar{x} \langle z \rangle$$
 
 
 ```
@@ -86,7 +89,9 @@ Examples are taken from
 }.
 ```
 
-3. $(\nu z)(\bar{x} \langle y \rangle + \bar{z}(w).\bar{w} \langle y \rangle) \mid \bar{x}(u).\bar{u} \langle v \rangle \mid \bar{x} \langle z \rangle \quad \longrightarrow^* \quad (\nu z)(\bar{y}(v) \mid \bar{x}(z)) \text{ or } \bar{v}(y)$
+### 3. 
+
+$$(\nu z)(\bar{x} \langle y \rangle + \bar{z}(w).\bar{w} \langle y \rangle) \mid \bar{x}(u).\bar{u} \langle v \rangle \mid \bar{x} \langle z \rangle \quad \longrightarrow^* \quad (\nu z)(\bar{y}(v) \mid \bar{x}(z)) \text{ or } \bar{v}(y)$$
  
 
 ```
@@ -99,7 +104,7 @@ Examples are taken from
 }.
 ``` 
 
-4. 
+### 4. 
 
 $(\nu b\ c\ m_1\ m_2)\left(\bar{c} \langle x_1, \bar{l l}, m_1 \rangle \mid \bar{b} \langle m_1, m_2 \rangle \mid \bar{c} \langle x_2, m_2, \bar{r r} \rangle \mid !\bar{b}(i, o).i(x).\bar{c} \langle x, i, o \rangle \mid !\bar{c}(y, i, o), o \langle y \rangle, \bar{b}(i, o)\right)$
 
