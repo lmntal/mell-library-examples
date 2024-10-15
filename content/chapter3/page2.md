@@ -97,3 +97,33 @@ gc4@@ amb.use :- .
 }.
 ```
 
+## Use
+
+1.
+ 
+
+```
+{ amb.use. locks.
+acquire(N,P) :- open(N,P).
+release(N,{$p}) :- {amb.use, amb(N0), {id,+N0,-N}}, $p.
+
+acquire(N0,{release(M0,{pp})}),
+release(N1,{acquire(M1,{qq})}),
+{id,+N0,+N1}, {id,+M0,+M1}.
+}.
+```
+
+2. 
+
+```
+{ amb.use.  authentication.
+{id,name(home),+H4}, {id,name(agent),+A4},
+{amb.use. amb(H0), {id,+N0,+N3}, {id,+H0,+H3,-H4}, {id,+A3,-A4},
+  open(N0,{}),
+  {amb.use. amb(A), {id,+H1,+H2,-H3}, {id,+A,+A1,+A2,-A3}, {id,+N2,-N3},
+   out(H1,{in(H2,{{amb(N1), {id,+N1,-N2}, 
+                   out(A1,{open(A2,{pp})})}})})}}.
+}.
+```
+
+

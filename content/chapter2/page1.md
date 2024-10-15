@@ -1,74 +1,12 @@
 +++
-title = "Cut Elimination Rules"
+title = "Proof Net Example"
 weight = 1
 
 [extra]
 mathjax = "tex-mml"
 +++
 
-## Core Rules:
-
-### $!$-$?w$
-
-```
-box_cut_elimination_weakening@@
-{'!'(X1,X2),$g[X1|*X]},cut{cut_(X2),cut_(X3)},'?w'(X3) 
-  :- mell.delete(X1,W),{$g[X1|*X]},{'?w'(W)}.
-```
-
-### $!$-$?c$
-
-```
-box_cut_elimination_contraction@@
-{'!'(X1,X2),$g[X1|*X]},cut{cut_(X2),cut_(X3)},'?c'({'?c_'(C1),'?c_'(C2)},X3)
-  :- mell.copy(X2,A1,A2,A3,B1,B2,C1,C2),{'!'(X1,X2),$g[X1|*X]},
-      {'?c'({'?c_'(A1),'?c_'(A2)},A3)},{cut{cut_(B1),cut_(B2)}}.
-```
-
-## Full: 
-
-```
-{ 
-system_ruleset.
-// basic
-//// tensor-par
-cut_elimination_tensorpar@@
-tensor(X1,Y1,XY1),par(X2,Y2,XY2),cut{cut_(XY1),cut_(XY2)} 
-  :- cut{cut_(X1),cut_(X2)},cut{cut_(Y1),cut_(Y2)}.
-
-//// ax-cut
-cut_elimination_axcut@@
-cut{cut_(X),cut_(Y)},ax{ax_(Y),ax_(Z)} 
-  :- X=Z.
-
-// box
-//// dereliction
-box_cut_elimination_dereliction@@
-{'!'(X1,X2),$g[X1|*X],@r},cut{cut_(X2),cut_(X3)},'?d'(X4,X3) 
-  :- cut{cut_(X1),cut_(X4)}, $g[X1|*X],@r.
-
-//// nested
-box_cut_elimination_nested@@
-{'!'(X1,X2),$g1[X1|*X],@r1},cut{cut_(X2),cut_(X3)},{$g2[X3|*X],@r2}
-  :- {{'!'(X1,X2),$g1[X1|*X],@r1},cut{cut_(X2),cut_(X3)},$g2[X3|*X],@r2}.
-
-//// weakening
-box_cut_elimination_weakening@@
-{'!'(X1,X2),$g[X1|*X]},cut{cut_(X2),cut_(X3)},'?w'(X3) 
-  :- mell.delete(X1,W),{$g[X1|*X]},{'?w'(W)}.
-
-//// contration
-box_cut_elimination_contraction@@
-{'!'(X1,X2),$g[X1|*X]},cut{cut_(X2),cut_(X3)},'?c'({'?c_'(C1),'?c_'(C2)},X3)
-  :- mell.copy(X2,A1,A2,A3,B1,B2,C1,C2),{'!'(X1,X2),$g[X1|*X]},
-      {'?c'({'?c_'(A1),'?c_'(A2)},A3)},{cut{cut_(B1),cut_(B2)}}.
-
-}.
-```
-
-## Proof Net Example
-
-### 1. $(\lambda f\mathord{:} n \to n .\lambda x \mathord{:} n . f x)\:(\lambda x \mathord{:}n . x) \to (\lambda x \mathord{:} n . x)$ 
+## 1. $(\lambda f\mathord{:} n \to n .\lambda x \mathord{:} n . f x)\:(\lambda x \mathord{:}n . x) \to (\lambda x \mathord{:} n . x)$ 
 
 
 ```
@@ -93,7 +31,7 @@ cut{cut_(F),cut_(D4)}.
 f(T4).
 ```
 
-### 2. $(\lambda f \mathord{:}  n \to n .  \lambda x \mathord{:} n . f (f x) )(\lambda x \mathord{:} n . x)$
+## 2. $(\lambda f \mathord{:}  n \to n .  \lambda x \mathord{:} n . f (f x) )(\lambda x \mathord{:} n . x)$
 
 ```
 {
