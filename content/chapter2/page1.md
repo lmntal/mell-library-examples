@@ -28,7 +28,7 @@ ax{ax_(E1),ax_(E2)},'?d'(E1,E3),par(E3,E2,E4),'!'(E4,E5).
 }.
 tensor(E5,T3,D4),ax{ax_(T3),ax_(T4)}.
 cut{cut_(F),cut_(D4)}.
-f(T4).
+formula(T4).
 ```
 
 ## 2. $(\lambda f \mathord{:}  n \to n .  \lambda x \mathord{:} n . f (f x) )(\lambda x \mathord{:} n . x)$
@@ -67,5 +67,5 @@ par(G1,H3,P1).
 par(G2,P1,P2).
 
 cut{cut_(I2),cut_(P2)}.
-f(I3).
+formula(I3).
 ```
