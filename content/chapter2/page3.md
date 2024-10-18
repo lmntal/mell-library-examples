@@ -6,7 +6,7 @@ weight = 3
 mathjax = "tex-mml"
 +++
 
-## Pull-Equivalence: 
+## Push-Equivalence: 
 
 ```
 {
