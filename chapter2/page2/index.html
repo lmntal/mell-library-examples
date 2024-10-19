@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+      
+      <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      <script>
+        MathJax = {
+          tex: {
+            displayMath: [['$$', '$$'], ["\\[", "\\]"]],
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+          }
+        };
+      </script>
+      <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+    
+    
+      
+      <meta name="description" content="mell library examples" />
+      
+    
+
+      <title>mell library examples</title>
+
+      
+      
+
+      <!-- CSS -->
+      
+      <link rel="stylesheet" href="https://lmntal.github.io//mell-library-examples/book.css">
+      
+
+      
+      
+    </head>
+
+    <body>
+        <div class="menu">
+            
+            
+            <nav role="navigation">
+                <ul>
+                    
+                        
+                        
+                            
+                            <li >
+                                
+                                <a href="https://lmntal.github.io//mell-library-examples/chapter1/">
+                                    <strong>1.</strong>
+                                    Introduction
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href="https://lmntal.github.io//mell-library-examples/chapter1/page1/">
+                                                    <strong>1.1.</strong>
+                                                    Specifications
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href="https://lmntal.github.io//mell-library-examples/chapter2/">
+                                    <strong>2.</strong>
+                                    Encoding MELL Proof Nets
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href="https://lmntal.github.io//mell-library-examples/chapter2/page1/">
+                                                    <strong>2.1.</strong>
+                                                    Proof Net Example
+                                                </a>
+                                            </li>
+                                        
+                                            <li class="active">
+                                                <a href="https://lmntal.github.io//mell-library-examples/chapter2/page2/">
+                                                    <strong>2.2.</strong>
+                                                    Cut Elimination Rules
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href="https://lmntal.github.io//mell-library-examples/chapter2/page3/">
+                                                    <strong>2.3.</strong>
+                                                    Additional Rules
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href="https://lmntal.github.io//mell-library-examples/chapter3/">
+                                    <strong>3.</strong>
+                                    Encoding Process Calculi
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href="https://lmntal.github.io//mell-library-examples/chapter3/page1/">
+                                                    <strong>3.1.</strong>
+                                                    Synchronous π-calculus
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href="https://lmntal.github.io//mell-library-examples/chapter3/page2/">
+                                                    <strong>3.2.</strong>
+                                                    Ambient calculus
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                    
+                </ul>
+            </nav>
+            
+            
+        </div>
+
+        <div class="page">
+            <div class="page__header">
+                <div class="menu-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                
+                <span class="search-icon">🔎</span>
+                
+            </div>
+
+            <div class="page__content">
+                
+                <div class="search-container">
+                    <input id="search" type="search" placeholder="Search..">
+                    <div class="search-results">
+                        <div class="search-results__header"></div>
+                        <ul class="search-results__items"></ul>
+                    </div>
+                </div>
+                
+                <div class="book-content">
+                    
+    <h1>Cut Elimination Rules</h1>
+    <h2 id="core-rules">Core Rules:<a class="zola-anchor" href="#core-rules" aria-label="Anchor link for: core-rules">🔗</a></h2>
+<h3 id="w">$!$-$?w$<a class="zola-anchor" href="#w" aria-label="Anchor link for: w">🔗</a></h3>
+<pre class="z-code"><code><span class="z-text z-plain">promotion_weakening@@
+</span><span class="z-text z-plain">{&#39;!&#39;(X1,X2),$p[X1|*X]},cut{cut_(X2),cut_(X3)},&#39;?w&#39;(X3) 
+</span><span class="z-text z-plain">  :- mell.delete(X1,W),{$p[X1|*X]},{&#39;?w&#39;(W)}.
+</span></code></pre>
+<h3 id="c">$!$-$?c$<a class="zola-anchor" href="#c" aria-label="Anchor link for: c">🔗</a></h3>
+<pre class="z-code"><code><span class="z-text z-plain">promotion_contraction@@
+</span><span class="z-text z-plain">{&#39;!&#39;(X1,X2),$p[X1|*X]},cut{cut_(X2),cut_(X3)},&#39;?c&#39;({&#39;?c_&#39;(C1),&#39;?c_&#39;(C2)},X3)
+</span><span class="z-text z-plain">  :- mell.copy(X2,A1,A2,A3,B1,B2,C1,C2),{&#39;!&#39;(X1,X2),$p[X1|*X]},
+</span><span class="z-text z-plain">      {&#39;?c&#39;({&#39;?c_&#39;(A1),&#39;?c_&#39;(A2)},A3)},{cut{cut_(B1),cut_(B2)}}.
+</span></code></pre>
+<h2 id="full">Full:<a class="zola-anchor" href="#full" aria-label="Anchor link for: full">🔗</a></h2>
+<pre class="z-code"><code><span class="z-text z-plain">{ 
+</span><span class="z-text z-plain">system_ruleset.
+</span><span class="z-text z-plain">// basic
+</span><span class="z-text z-plain">//// ax-cut
+</span><span class="z-text z-plain">ax_cut@@
+</span><span class="z-text z-plain">cut{cut_(X),cut_(Y)},ax{ax_(Y),ax_(Z)} 
+</span><span class="z-text z-plain">  :- X=Z.
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">//// tensor-par
+</span><span class="z-text z-plain">tensor_par@@
+</span><span class="z-text z-plain">tensor(X1,Y1,XY1),par(X2,Y2,XY2),cut{cut_(XY1),cut_(XY2)} 
+</span><span class="z-text z-plain">  :- cut{cut_(X1),cut_(X2)},cut{cut_(Y1),cut_(Y2)}.
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">// box
+</span><span class="z-text z-plain">//// !-?d
+</span><span class="z-text z-plain">promotion_dereliction@@
+</span><span class="z-text z-plain">{&#39;!&#39;(X1,X2),$p[X1|*X],@r},cut{cut_(X2),cut_(X3)},&#39;?d&#39;(X4,X3) 
+</span><span class="z-text z-plain">  :- cut{cut_(X1),cut_(X4)}, $p[X1|*X],@r.
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">//// !-!
+</span><span class="z-text z-plain">promotion_promotion@@
+</span><span class="z-text z-plain">{&#39;!&#39;(X1,X2),$p[X1|*X],@r1},cut{cut_(X2),cut_(X3)},{$q[X3|*X],@r2}
+</span><span class="z-text z-plain">  :- {{&#39;!&#39;(X1,X2),$p[X1|*X],@r1},cut{cut_(X2),cut_(X3)},$q[X3|*X],@r2}.
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">//// !-?w
+</span><span class="z-text z-plain">promotion_weakening@@
+</span><span class="z-text z-plain">{&#39;!&#39;(X1,X2),$p[X1|*X]},cut{cut_(X2),cut_(X3)},&#39;?w&#39;(X3) 
+</span><span class="z-text z-plain">  :- mell.delete(X1,W),{$p[X1|*X]},{&#39;?w&#39;(W)}.
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">//// !-?c
+</span><span class="z-text z-plain">promotion_contraction@@
+</span><span class="z-text z-plain">{&#39;!&#39;(X1,X2),$p[X1|*X]},cut{cut_(X2),cut_(X3)},&#39;?c&#39;({&#39;?c_&#39;(C1),&#39;?c_&#39;(C2)},X3)
+</span><span class="z-text z-plain">  :- mell.copy(X2,A1,A2,A3,B1,B2,C1,C2),{&#39;!&#39;(X1,X2),$p[X1|*X]},
+</span><span class="z-text z-plain">      {&#39;?c&#39;({&#39;?c_&#39;(A1),&#39;?c_&#39;(A2)},A3)},{cut{cut_(B1),cut_(B2)}}.
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">}.
+</span></code></pre>
+
+
+                </div>
+            </div>
+
+            <div class="prev-link">
+                
+    
+        
+        
+        <a class="previous" href="https://lmntal.github.io//mell-library-examples/chapter2/"><</a>
+    
+
+            </div>
+
+            <div class="next-link">
+                
+    
+        <a class="next" href="https://lmntal.github.io//mell-library-examples/chapter2/page3/">></a>
+    
+
+            </div>
+        </div>
+
+        
+            
+            <script type="text/javascript" src="https://lmntal.github.io//mell-library-examples/elasticlunr.min.js"></script>
+            <script type="text/javascript" src="https://lmntal.github.io//mell-library-examples/search_index.en.js"></script>
+            
+            <script type="text/javascript" src="https://lmntal.github.io//mell-library-examples/book.js"></script>
+        
+    </body>
+
+</html>

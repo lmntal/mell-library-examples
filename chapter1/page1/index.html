@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+      
+      <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      <script>
+        MathJax = {
+          tex: {
+            displayMath: [['$$', '$$'], ["\\[", "\\]"]],
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+          }
+        };
+      </script>
+      <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+    
+    
+      
+      <meta name="description" content="mell library examples" />
+      
+    
+
+      <title>mell library examples</title>
+
+      
+      
+
+      <!-- CSS -->
+      
+      <link rel="stylesheet" href="https://lmntal.github.io//mell-library-examples/book.css">
+      
+
+      
+      
+    </head>
+
+    <body>
+        <div class="menu">
+            
+            
+            <nav role="navigation">
+                <ul>
+                    
+                        
+                        
+                            
+                            <li >
+                                
+                                <a href="https://lmntal.github.io//mell-library-examples/chapter1/">
+                                    <strong>1.</strong>
+                                    Introduction
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li class="active">
+                                                <a href="https://lmntal.github.io//mell-library-examples/chapter1/page1/">
+                                                    <strong>1.1.</strong>
+                                                    Specifications
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href="https://lmntal.github.io//mell-library-examples/chapter2/">
+                                    <strong>2.</strong>
+                                    Encoding MELL Proof Nets
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href="https://lmntal.github.io//mell-library-examples/chapter2/page1/">
+                                                    <strong>2.1.</strong>
+                                                    Proof Net Example
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href="https://lmntal.github.io//mell-library-examples/chapter2/page2/">
+                                                    <strong>2.2.</strong>
+                                                    Cut Elimination Rules
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href="https://lmntal.github.io//mell-library-examples/chapter2/page3/">
+                                                    <strong>2.3.</strong>
+                                                    Additional Rules
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href="https://lmntal.github.io//mell-library-examples/chapter3/">
+                                    <strong>3.</strong>
+                                    Encoding Process Calculi
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href="https://lmntal.github.io//mell-library-examples/chapter3/page1/">
+                                                    <strong>3.1.</strong>
+                                                    Synchronous π-calculus
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href="https://lmntal.github.io//mell-library-examples/chapter3/page2/">
+                                                    <strong>3.2.</strong>
+                                                    Ambient calculus
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                    
+                </ul>
+            </nav>
+            
+            
+        </div>
+
+        <div class="page">
+            <div class="page__header">
+                <div class="menu-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                
+                <span class="search-icon">🔎</span>
+                
+            </div>
+
+            <div class="page__content">
+                
+                <div class="search-container">
+                    <input id="search" type="search" placeholder="Search..">
+                    <div class="search-results">
+                        <div class="search-results__header"></div>
+                        <ul class="search-results__items"></ul>
+                    </div>
+                </div>
+                
+                <div class="book-content">
+                    
+    <h1>Specifications</h1>
+    <h2 id="mell-delete">mell.delete<a class="zola-anchor" href="#mell-delete" aria-label="Anchor link for: mell-delete">🔗</a></h2>
+<p><code>mell.delete</code> is a construct for deleting a membrane with an indefinite number of free links.</p>
+<pre class="z-code"><code><span class="z-text z-plain">mell.delete(X,A),{$p[X|*X]},{$a} :- $a[*X].
+</span></code></pre>
+<h2 id="mell-copy">mell.copy<a class="zola-anchor" href="#mell-copy" aria-label="Anchor link for: mell-copy">🔗</a></h2>
+<p><code>mell.copy</code> is a construct for copying a membrane with an indefinite number of free links.</p>
+<pre class="z-code"><code><span class="z-text z-plain">mell.copy(X,A1,A2,A3,B1,B2,C1,C2),
+</span><span class="z-text z-plain">{$p[X|*Z]},{$a[A1,A2,A3]},{$b[B1,B2]}
+</span><span class="z-text z-plain">            :- {$p[X&#39;|*Z&#39;]},{$p[X&#39;&#39;|*Z&#39;&#39;]}, 
+</span><span class="z-text z-plain">               $a[*Z&#39;,*Z&#39;&#39;,*Z],$b[X&#39;&#39;,C1],$b[X&#39;&#39;,C2].
+</span></code></pre>
+
+
+                </div>
+            </div>
+
+            <div class="prev-link">
+                
+    
+        
+        
+        <a class="previous" href="https://lmntal.github.io//mell-library-examples/chapter1/"><</a>
+    
+
+            </div>
+
+            <div class="next-link">
+                
+    
+        
+        
+        
+        
+            
+            
+            
+                
+                    
+                
+            
+        
+            
+            
+                <a class="next" href="https://lmntal.github.io//mell-library-examples/chapter2/">></a>
+                
+                
+            
+            
+                
+            
+                
+            
+                
+            
+        
+            
+            
+            
+                
+            
+                
+            
+        
+    
+
+            </div>
+        </div>
+
+        
+            
+            <script type="text/javascript" src="https://lmntal.github.io//mell-library-examples/elasticlunr.min.js"></script>
+            <script type="text/javascript" src="https://lmntal.github.io//mell-library-examples/search_index.en.js"></script>
+            
+            <script type="text/javascript" src="https://lmntal.github.io//mell-library-examples/book.js"></script>
+        
+    </body>
+
+</html>

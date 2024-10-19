@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+Allow: /
+Sitemap: https://lmntal.github.io//mell-library-examples/sitemap.xml

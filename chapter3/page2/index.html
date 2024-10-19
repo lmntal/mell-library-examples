@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+      
+      <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      <script>
+        MathJax = {
+          tex: {
+            displayMath: [['$$', '$$'], ["\\[", "\\]"]],
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+          }
+        };
+      </script>
+      <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+    
+    
+      
+      <meta name="description" content="mell library examples" />
+      
+    
+
+      <title>mell library examples</title>
+
+      
+      
+
+      <!-- CSS -->
+      
+      <link rel="stylesheet" href="https://lmntal.github.io//mell-library-examples/book.css">
+      
+
+      
+      
+    </head>
+
+    <body>
+        <div class="menu">
+            
+            
+            <nav role="navigation">
+                <ul>
+                    
+                        
+                        
+                            
+                            <li >
+                                
+                                <a href="https://lmntal.github.io//mell-library-examples/chapter1/">
+                                    <strong>1.</strong>
+                                    Introduction
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href="https://lmntal.github.io//mell-library-examples/chapter1/page1/">
+                                                    <strong>1.1.</strong>
+                                                    Specifications
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href="https://lmntal.github.io//mell-library-examples/chapter2/">
+                                    <strong>2.</strong>
+                                    Encoding MELL Proof Nets
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href="https://lmntal.github.io//mell-library-examples/chapter2/page1/">
+                                                    <strong>2.1.</strong>
+                                                    Proof Net Example
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href="https://lmntal.github.io//mell-library-examples/chapter2/page2/">
+                                                    <strong>2.2.</strong>
+                                                    Cut Elimination Rules
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href="https://lmntal.github.io//mell-library-examples/chapter2/page3/">
+                                                    <strong>2.3.</strong>
+                                                    Additional Rules
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href="https://lmntal.github.io//mell-library-examples/chapter3/">
+                                    <strong>3.</strong>
+                                    Encoding Process Calculi
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href="https://lmntal.github.io//mell-library-examples/chapter3/page1/">
+                                                    <strong>3.1.</strong>
+                                                    Synchronous π-calculus
+                                                </a>
+                                            </li>
+                                        
+                                            <li class="active">
+                                                <a href="https://lmntal.github.io//mell-library-examples/chapter3/page2/">
+                                                    <strong>3.2.</strong>
+                                                    Ambient calculus
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                    
+                </ul>
+            </nav>
+            
+            
+        </div>
+
+        <div class="page">
+            <div class="page__header">
+                <div class="menu-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                
+                <span class="search-icon">🔎</span>
+                
+            </div>
+
+            <div class="page__content">
+                
+                <div class="search-container">
+                    <input id="search" type="search" placeholder="Search..">
+                    <div class="search-results">
+                        <div class="search-results__header"></div>
+                        <ul class="search-results__items"></ul>
+                    </div>
+                </div>
+                
+                <div class="book-content">
+                    
+    <h1>Ambient calculus</h1>
+    <h2 id="core-rules">Core Rules<a class="zola-anchor" href="#core-rules" aria-label="Anchor link for: core-rules">🔗</a></h2>
+<h3 id="replication-of-open">Replication of Open<a class="zola-anchor" href="#replication-of-open" aria-label="Anchor link for: replication-of-open">🔗</a></h3>
+<p>$$ !(\mathrm{open}\ m.P) \mid m[Q]  \to  P \mid Q \mid \ !(\mathrm{open}\ m.P) $$</p>
+<pre class="z-code"><code><span class="z-text z-plain">open_repl(M,{$p}), {amb(M1),{id,+M1,-M2,$mm},$q,@q}, {id,+M,+M2,$m}
+</span><span class="z-text z-plain">  :- mell.copy({$p},A1,A2,A3,B1,B2,remove,P), {cp(A1,A2,A3)},
+</span><span class="z-text z-plain">     {B1=B2}, $q, {id,+M3,$m,$mm}, open_repl(M3,P).
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">open_repl_aux@@ remove({$p}):- $p.
+</span></code></pre>
+<h2 id="full">Full<a class="zola-anchor" href="#full" aria-label="Anchor link for: full">🔗</a></h2>
+<pre class="z-code"><code><span class="z-text z-plain">{ module(amb).
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">/* n[in m.P | Q] | m[R] --&gt; m[n[P|Q] | R] */
+</span><span class="z-text z-plain">in@@
+</span><span class="z-text z-plain">{amb(N0), {id,+N0,$n}, {id,+M0,-M1,$m0}, in(M0,{$p}), $q,@q},
+</span><span class="z-text z-plain">{amb(M2), {id,+M2,-M3,$m1}, $r,@r},
+</span><span class="z-text z-plain">{id,+M1,+M3,$m2} :-
+</span><span class="z-text z-plain">   {amb(M4), {id,+M4,+M5,-M,$m1},
+</span><span class="z-text z-plain">      {amb(N2), {id,+N2,$n}, {id,-M5,$m0}, $p,$q,@q},
+</span><span class="z-text z-plain">   $r,@r},
+</span><span class="z-text z-plain">   {id,+M,$m2}.
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">/* m[n[out m.P | Q] | R] --&gt; n[P|Q] | m[R] */
+</span><span class="z-text z-plain">out@@
+</span><span class="z-text z-plain">{amb(M0), {id,+M0,+M2,$m1}, {id,+N1,$n2},
+</span><span class="z-text z-plain">  {amb(N0), {id,+M1,-M2,$m0}, {id,+N0,-N1,$n}, out(M1,{$p}), $q,@q},
+</span><span class="z-text z-plain">  $r,@r} :-
+</span><span class="z-text z-plain">    {amb(N2), {id,-M3,$m0}, {id,+N2,-N3,$n}, $p,$q,@q},
+</span><span class="z-text z-plain">    {amb(M4), {id,+M3,+M4,$m1}, {id,+N3,$n2}, $r,@r}.
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">/* open m.P | m[Q] --&gt; P|Q */
+</span><span class="z-text z-plain">open@@
+</span><span class="z-text z-plain">open(M,{$p}), {amb(M1), {id,+M1,-M2,$mm}, $q,@q}, {id,+M,+M2,$m} :-
+</span><span class="z-text z-plain">   $p, $q, {id,$m,$mm}.
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">/* !(open m) | m[Q] --&gt; Q | !(open m) */
+</span><span class="z-text z-plain">open_repl@@  /* special case of !open */
+</span><span class="z-text z-plain">open_repl(M,{$p}), {amb(M1), {id,+M1,-M2,$mm}, $q,@q}, {id,+M,+M2,$m} :-
+</span><span class="z-text z-plain">   mell.copy({$p},A1,A2,A3,B1,B2,remove,P),{cp(A1,A2,A3)},{B1=B2},
+</span><span class="z-text z-plain">   $q, {id,+M3,$m,$mm}, open_repl(M3,P).
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">open_repl_aux@@
+</span><span class="z-text z-plain">remove({$p}) :- {$p}.
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">proxy_enter@@
+</span><span class="z-text z-plain">{$p[M0,M1|*P],@p}, {id,+M0,+M1,$m} :-
+</span><span class="z-text z-plain">   {$p[M0,M1|*P],@p, {id,+M0,+M1,-M}}, {id,+M,$m}.
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">proxy_resolve@@
+</span><span class="z-text z-plain">{id,-M,$m0}, {id,+M,$m1} :- {id,$m0,$m1}.
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">proxy_insert_middle@@
+</span><span class="z-text z-plain">{{{id,-M,$m},$p,@p},$q,@q} :- {{id,+M0,-M}, {{id,-M0,$m},$p,@p},$q,@q}.
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">proxy_insert_outer@@
+</span><span class="z-text z-plain">{{id,+M0,$m0},$p,@p} :- {{id,-M,$m0},$p,@p}, {id,+M0,+M}.
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">proxy_merge_outer@@
+</span><span class="z-text z-plain">{id,+M0,$m0}, {id,+M1,$m1}, {{id,-M0,-M1,$m2},$p,@p} :-
+</span><span class="z-text z-plain">     {id,+M,$m0,$m1}, {{id,-M,$m2},$p,@p}.
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">local_name_in@@
+</span><span class="z-text z-plain">{$p[M|*P],@p}, {id,+M} :- {{id,+M}, $p[M|*P],@p}.
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">global_name_out@@
+</span><span class="z-text z-plain">{{id,name($n),+M0},{$p[M0|*M],@p},$q,@q} :- unary($n) |
+</span><span class="z-text z-plain">    {{id,+M0,-M},{$p[M0|*M],@p},$q,@q}, {id,name($n),+M}.
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">root_merge@@
+</span><span class="z-text z-plain">{id,name($n0),$m0}, {id,name($n1), $m1} :-
+</span><span class="z-text z-plain">  unary($n0), unary($n1),
+</span><span class="z-text z-plain">  $n0=$n1 |
+</span><span class="z-text z-plain">  {id,name($n0),$m0,$m1}.
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">gc1@@ {id} :- .
+</span><span class="z-text z-plain">gc2@@ {id,name($n)} :- unary($n) | .
+</span><span class="z-text z-plain">gc3@@ {id,+X,$m}, {{id,-X}, $p,@p} :- {id,$m}, {$p,@p}.
+</span><span class="z-text z-plain">gc4@@ amb.use :- .
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">}.
+</span></code></pre>
+<h2 id="use">Use<a class="zola-anchor" href="#use" aria-label="Anchor link for: use">🔗</a></h2>
+<ol>
+<li></li>
+</ol>
+<pre class="z-code"><code><span class="z-text z-plain">{ amb.use. locks.
+</span><span class="z-text z-plain">acquire(N,P) :- open(N,P).
+</span><span class="z-text z-plain">release(N,{$p}) :- {amb.use, amb(N0), {id,+N0,-N}}, $p.
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">acquire(N0,{release(M0,{pp})}),
+</span><span class="z-text z-plain">release(N1,{acquire(M1,{qq})}),
+</span><span class="z-text z-plain">{id,+N0,+N1}, {id,+M0,+M1}.
+</span><span class="z-text z-plain">}.
+</span></code></pre>
+<ol start="2">
+<li></li>
+</ol>
+<pre class="z-code"><code><span class="z-text z-plain">{ amb.use.  authentication.
+</span><span class="z-text z-plain">{id,name(home),+H4}, {id,name(agent),+A4},
+</span><span class="z-text z-plain">{amb.use. amb(H0), {id,+N0,+N3}, {id,+H0,+H3,-H4}, {id,+A3,-A4},
+</span><span class="z-text z-plain">  open(N0,{}),
+</span><span class="z-text z-plain">  {amb.use. amb(A), {id,+H1,+H2,-H3}, {id,+A,+A1,+A2,-A3}, {id,+N2,-N3},
+</span><span class="z-text z-plain">   out(H1,{in(H2,{{amb(N1), {id,+N1,-N2}, 
+</span><span class="z-text z-plain">                   out(A1,{open(A2,{pp})})}})})}}.
+</span><span class="z-text z-plain">}.
+</span></code></pre>
+
+
+                </div>
+            </div>
+
+            <div class="prev-link">
+                
+    
+        
+        
+        <a class="previous" href="https://lmntal.github.io//mell-library-examples/chapter3/"><</a>
+    
+
+            </div>
+
+            <div class="next-link">
+                
+    
+        
+        
+        
+        
+            
+            
+            
+                
+            
+        
+            
+            
+            
+                
+            
+                
+            
+                
+            
+        
+            
+            
+            
+                
+            
+                
+                    
+                
+            
+        
+    
+
+            </div>
+        </div>
+
+        
+            
+            <script type="text/javascript" src="https://lmntal.github.io//mell-library-examples/elasticlunr.min.js"></script>
+            <script type="text/javascript" src="https://lmntal.github.io//mell-library-examples/search_index.en.js"></script>
+            
+            <script type="text/javascript" src="https://lmntal.github.io//mell-library-examples/book.js"></script>
+        
+    </body>
+
+</html>

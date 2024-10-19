@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+      
+      <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      <script>
+        MathJax = {
+          tex: {
+            displayMath: [['$$', '$$'], ["\\[", "\\]"]],
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+          }
+        };
+      </script>
+      <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+    
+    
+      
+      <meta name="description" content="mell library examples" />
+      
+    
+
+      <title>mell library examples</title>
+
+      
+      
+
+      <!-- CSS -->
+      
+      <link rel="stylesheet" href="https://lmntal.github.io//mell-library-examples/book.css">
+      
+
+      
+      
+    </head>
+
+    <body>
+        <div class="menu">
+            
+            
+            <nav role="navigation">
+                <ul>
+                    
+                        
+                        
+                            
+                            <li >
+                                
+                                <a href="https://lmntal.github.io//mell-library-examples/chapter1/">
+                                    <strong>1.</strong>
+                                    Introduction
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href="https://lmntal.github.io//mell-library-examples/chapter1/page1/">
+                                                    <strong>1.1.</strong>
+                                                    Specifications
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href="https://lmntal.github.io//mell-library-examples/chapter2/">
+                                    <strong>2.</strong>
+                                    Encoding MELL Proof Nets
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li class="active">
+                                                <a href="https://lmntal.github.io//mell-library-examples/chapter2/page1/">
+                                                    <strong>2.1.</strong>
+                                                    Proof Net Example
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href="https://lmntal.github.io//mell-library-examples/chapter2/page2/">
+                                                    <strong>2.2.</strong>
+                                                    Cut Elimination Rules
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href="https://lmntal.github.io//mell-library-examples/chapter2/page3/">
+                                                    <strong>2.3.</strong>
+                                                    Additional Rules
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                            
+                            <li >
+                                
+                                <a href="https://lmntal.github.io//mell-library-examples/chapter3/">
+                                    <strong>3.</strong>
+                                    Encoding Process Calculi
+                                </a>
+                                
+                                    <ul>
+                                        
+                                            <li >
+                                                <a href="https://lmntal.github.io//mell-library-examples/chapter3/page1/">
+                                                    <strong>3.1.</strong>
+                                                    Synchronous π-calculus
+                                                </a>
+                                            </li>
+                                        
+                                            <li >
+                                                <a href="https://lmntal.github.io//mell-library-examples/chapter3/page2/">
+                                                    <strong>3.2.</strong>
+                                                    Ambient calculus
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                        
+                    
+                </ul>
+            </nav>
+            
+            
+        </div>
+
+        <div class="page">
+            <div class="page__header">
+                <div class="menu-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                
+                <span class="search-icon">🔎</span>
+                
+            </div>
+
+            <div class="page__content">
+                
+                <div class="search-container">
+                    <input id="search" type="search" placeholder="Search..">
+                    <div class="search-results">
+                        <div class="search-results__header"></div>
+                        <ul class="search-results__items"></ul>
+                    </div>
+                </div>
+                
+                <div class="book-content">
+                    
+    <h1>Proof Net Example</h1>
+    <h2 id="1-lambda-f-mathord-n-to-n-lambda-x-mathord-n-f-x-lambda-x-mathord-n-x-to-lambda-x-mathord-n-x">1. $(\lambda f\mathord{:} n \to n .\lambda x \mathord{:} n . f x):(\lambda x \mathord{:}n . x) \to (\lambda x \mathord{:} n . x)$<a class="zola-anchor" href="#1-lambda-f-mathord-n-to-n-lambda-x-mathord-n-f-x-lambda-x-mathord-n-x-to-lambda-x-mathord-n-x" aria-label="Anchor link for: 1-lambda-f-mathord-n-to-n-lambda-x-mathord-n-f-x-lambda-x-mathord-n-x-to-lambda-x-mathord-n-x">🔗</a></h2>
+<pre class="z-code"><code><span class="z-text z-plain">ax{ax_(A1),ax_(A2)},&#39;?d&#39;(A1,A3),&#39;?w&#39;(A4).
+</span><span class="z-text z-plain">{
+</span><span class="z-text z-plain">ax{ax_(B1),ax_(B2)},&#39;?d&#39;(B1,B3),&#39;?w&#39;(B4),&#39;!&#39;(B2,B5)
+</span><span class="z-text z-plain">}.
+</span><span class="z-text z-plain">&#39;?c&#39;({&#39;?c_&#39;(A3),&#39;?c_&#39;(B4)},C1).
+</span><span class="z-text z-plain">&#39;?c&#39;({&#39;?c_&#39;(A4),&#39;?c_&#39;(B3)},C2).
+</span><span class="z-text z-plain">tensor(B5,T1,D2),ax{ax_(T1),ax_(T2)}.
+</span><span class="z-text z-plain">cut{cut_(A2),cut_(D2)}.
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">par(C2,T2,P1).
+</span><span class="z-text z-plain">par(C1,P1,F).
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">{
+</span><span class="z-text z-plain">ax{ax_(E1),ax_(E2)},&#39;?d&#39;(E1,E3),par(E3,E2,E4),&#39;!&#39;(E4,E5).
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">}.
+</span><span class="z-text z-plain">tensor(E5,T3,D4),ax{ax_(T3),ax_(T4)}.
+</span><span class="z-text z-plain">cut{cut_(F),cut_(D4)}.
+</span><span class="z-text z-plain">formula(T4).
+</span></code></pre>
+<h2 id="2-lambda-f-mathord-n-to-n-lambda-x-mathord-n-f-f-x-lambda-x-mathord-n-x">2. $(\lambda f \mathord{:}  n \to n .  \lambda x \mathord{:} n . f (f x) )(\lambda x \mathord{:} n . x)$<a class="zola-anchor" href="#2-lambda-f-mathord-n-to-n-lambda-x-mathord-n-f-f-x-lambda-x-mathord-n-x" aria-label="Anchor link for: 2-lambda-f-mathord-n-to-n-lambda-x-mathord-n-f-f-x-lambda-x-mathord-n-x">🔗</a></h2>
+<pre class="z-code"><code><span class="z-text z-plain">{
+</span><span class="z-text z-plain">  ax{ax_(A1),ax_(A2)},&#39;?d&#39;(A1,A3).
+</span><span class="z-text z-plain">  par(A3,A2,A5).
+</span><span class="z-text z-plain">  &#39;!&#39;(A5,A7).
+</span><span class="z-text z-plain">}.
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">tensor(A7,I1,I2).
+</span><span class="z-text z-plain">ax{ax_(I1),ax_(I3)}.
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">{
+</span><span class="z-text z-plain">  {ax{ax_(B1),ax_(B2)},&#39;?d&#39;(B1,B3),&#39;?w&#39;(B4),&#39;!&#39;(B2,B5)}.
+</span><span class="z-text z-plain">  tensor(B5,E1,E2).
+</span><span class="z-text z-plain">  ax{ax_(E1),ax_(E3)}.
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">  ax{ax_(C1),ax_(C2)},&#39;?d&#39;(C1,C3),&#39;?w&#39;(C4).
+</span><span class="z-text z-plain">  &#39;?c&#39;({&#39;?c_&#39;(B4), &#39;?c_&#39;(C3)},D1).
+</span><span class="z-text z-plain">  &#39;?c&#39;({&#39;?c_&#39;(B3),&#39;?c_&#39;(C4)},D2).
+</span><span class="z-text z-plain">  cut{cut_(E2),cut_(C2)}.
+</span><span class="z-text z-plain">  &#39;!&#39;(E3,E4).
+</span><span class="z-text z-plain">}.
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">ax{ax_(F1),ax_(F2)},&#39;?d&#39;(F1,F3),&#39;?w&#39;(F4).
+</span><span class="z-text z-plain">&#39;?c&#39;({&#39;?c_&#39;(F4),&#39;?c_&#39;(D2)},G1).
+</span><span class="z-text z-plain">&#39;?c&#39;({&#39;?c_&#39;(F3),&#39;?c_&#39;(D1)},G2).
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">tensor(E4,H1,H2).
+</span><span class="z-text z-plain">ax{ax_(H1),ax_(H3)}.
+</span><span class="z-text z-plain">cut{cut_(H2),cut_(F2)}.
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">par(G1,H3,P1).
+</span><span class="z-text z-plain">par(G2,P1,P2).
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">cut{cut_(I2),cut_(P2)}.
+</span><span class="z-text z-plain">formula(I3).
+</span></code></pre>
+
+
+                </div>
+            </div>
+
+            <div class="prev-link">
+                
+    
+        
+        
+        <a class="previous" href="https://lmntal.github.io//mell-library-examples/chapter2/"><</a>
+    
+
+            </div>
+
+            <div class="next-link">
+                
+    
+        <a class="next" href="https://lmntal.github.io//mell-library-examples/chapter2/page2/">></a>
+    
+
+            </div>
+        </div>
+
+        
+            
+            <script type="text/javascript" src="https://lmntal.github.io//mell-library-examples/elasticlunr.min.js"></script>
+            <script type="text/javascript" src="https://lmntal.github.io//mell-library-examples/search_index.en.js"></script>
+            
+            <script type="text/javascript" src="https://lmntal.github.io//mell-library-examples/book.js"></script>
+        
+    </body>
+
+</html>
