@@ -17,7 +17,7 @@ contraction_pull@@
   :- {'!'(X1,X2),$p[X1,X3,X4|*X]},'?c'({'?c_'(X3),'?c_'(X4)},X5).
 
 contraction_push@@
-/{'!'(X1,X2),$p[X1,X3,X4|*X]},'?c'({'?c_'(X3),'?c_'(X4)},X5)
+{'!'(X1,X2),$p[X1,X3,X4|*X]},'?c'({'?c_'(X3),'?c_'(X4)},X5)
   :- {'!'(X1,X2),'?c'({'?c_'(X3),'?c_'(X4)},X5),$p[X1,X3,X4|*X]}.
 
 weakening_pull@@

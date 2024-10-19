@@ -10,7 +10,7 @@ mathjax = "tex-mml"
 
 ### Replication of Open
 
-$$ !(\mathrm{open} m.P) \mid m[Q]  \to  P \mid Q \mid !(\mathrm{open} m.P) $$
+$$ !(\mathrm{open}\ m.P) \mid m[Q]  \to  P \mid Q \mid \ !(\mathrm{open}\ m.P) $$
 
 
 ```
